@@ -2,147 +2,117 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Phone } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function CTASection() {
+  const features = [
+    'NABL-Accredited Testing',
+    'ASTM & IS Compliant',
+    'Pan-India Presence',
+    '3+ Years Experience'
+  ];
+
   return (
-    <section className="relative py-8 sm:py-12 lg:py-18 bg-[#1f1f1f] overflow-hidden">
+    <section className="relative py-8 sm:py-10 lg:py-14 overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url("/cta.png")`,
+          backgroundImage: `url('/hero-bg-4.jpg')`, // Replace with your actual background image path
         }}
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#1f1f1f]/90" />
-
-      {/* Noise Texture Overlay */}
-      <div
-        className="absolute inset-0 opacity-40 mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")`,
-          backgroundSize: '300px',
-          backgroundRepeat: 'repeat',
-        }}
-      />
-
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-[#b11212]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#f6d8bd]/10 rounded-full blur-3xl" />
+      {/* Green Overlay */}
+      <div className="absolute inset-0 bg-[#00934c] opacity-95" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Section Label */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
+          {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-block mb-6"
+            transition={{ duration: 0.6 }}
+            className="flex-1 text-center lg:text-left"
           >
-            <div className="flex items-center gap-2 px-4 py-2">
-              <div className="w-2 h-2 bg-[#f6d8bd] rotate-45" />
-              <span className="text-[#f6d8bd] text-xs sm:text-sm font-bold tracking-wider uppercase">
-                Ready to Get Started?
-              </span>
-              <div className="w-2 h-2 bg-[#f6d8bd] rotate-45" />
+            {/* Main Heading */}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">
+              Ready to Get Started?
+            </h2>
+
+            {/* Subheading */}
+            <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-white/95 mb-3 sm:mb-4">
+              Partner With a Trusted Mineral Inspection Company
+            </p>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed mb-4 sm:mb-6 max-w-2xl mx-auto lg:mx-0">
+              Contact us today to discuss your Coal, Mineral & Critical Mineral inspection, sampling, or supervision requirements.
+            </p>
+
+            {/* Feature Badges */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 lg:mb-0">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                  className="flex items-center gap-1.5 sm:gap-2"
+                >
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium text-white">
+                    {feature}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Main Heading */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-[#fafafa] leading-tight mb-6"
-          >
-            Partner With a Trusted{' '}
-            <span className="text-[#b11212]">Mineral Inspection</span> Company
-          </motion.h2>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-lg lg:text-xl text-[#fafafa]/80 leading-relaxed mb-10 max-w-3xl mx-auto"
-          >
-            Get in touch to discuss your inspection, sampling, or supervision requirements.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* Right Side - CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+            transition={{ duration: 0.6 }}
+            className="flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-4 w-full sm:w-auto"
           >
-            {/* Primary CTA - Contact Us */}
+            {/* Primary CTA Button */}
             <motion.a
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-[#b11212] text-white font-bold text-sm sm:text-base hover:bg-[#8f0d0d] transition-all duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto justify-center"
+              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#00934c] font-bold text-sm sm:text-base rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
             >
-              <Phone className="w-5 h-5" />
-              Contact Us
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              {/* Button Shine Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+              
+              <span className="relative flex items-center gap-2">
+                Get a Quote
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
             </motion.a>
 
-            {/* Secondary CTA - Explore Services */}
+            {/* Secondary CTA Button */}
             <motion.a
               href="/services"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-[#f6d8bd] text-[#f6d8bd] font-bold text-sm sm:text-base hover:bg-[#f6d8bd] hover:text-[#1f1f1f] transition-all duration-300 w-full sm:w-auto justify-center"
+              className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-bold text-sm sm:text-base rounded-lg hover:bg-white hover:text-[#00934c] transition-all duration-300"
             >
-              Explore Our Services
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <span className="relative flex items-center gap-2">
+                Explore Our Services
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
             </motion.a>
-          </motion.div>
-
-          {/* Additional Trust Elements */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12 pt-8 border-t border-[#fafafa]/20"
-          >
-            <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-[#fafafa]/70 text-xs sm:text-sm">
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
-                <span>NABL-Accredited Partners</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
-                <span>ASTM & IS Compliant</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
-                <span>Pan-India Presence</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
-                <span>7+ Years Experience</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-10 right-10 w-32 h-32 sm:w-40 sm:h-40 bg-white/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-10 left-10 w-24 h-24 sm:w-32 sm:h-32 bg-white/5 rounded-full blur-3xl" />
     </section>
   );
 }

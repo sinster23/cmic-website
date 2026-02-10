@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Linkedin, Twitter, Instagram, ChevronUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Footer() {
@@ -26,25 +26,29 @@ export default function Footer() {
     { icon: Instagram, href: '#', label: 'Instagram' },
   ];
 
-  return (
-    <footer className="relative bg-[#1f1f1f] text-[#fafafa] overflow-hidden">
-      {/* Background Pattern */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url("https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png")`,
-          backgroundSize: '300px',
-          backgroundRepeat: 'repeat',
-        }}
-      />
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-10 w-32 h-32 bg-[#b11212]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-10 w-40 h-40 bg-[#f6d8bd]/10 rounded-full blur-3xl" />
+  return (
+    <footer className="relative bg-gradient-to-br from-[#0d5a99] via-[#0c5a9e] to-[#0a4d8a] text-white overflow-hidden">
+
+      {/* Scroll to Top Button - Vertical "Email" text */}
+      <div className="absolute top-0 right-0 h-full flex items-center">
+        <button
+          onClick={scrollToTop}
+          className="bg-[#00934c] hover:bg-[#007a3d] text-white px-3 py-6 transition-colors flex items-center justify-center"
+          aria-label="Scroll to top"
+        >
+          <span className="writing-mode-vertical text-xs font-bold tracking-widest uppercase">
+            Email
+          </span>
+        </button>
+      </div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-16">
+        <div className="container mx-auto px-6 lg:px-12 py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
             <motion.div
@@ -63,16 +67,16 @@ export default function Footer() {
                   <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#f6d8bd]" />
                 </div>
                 <div>
-                  <div className="text-[#fafafa] font-black text-base leading-tight">
+                  <div className="text-white font-black text-base leading-tight">
                     Carbonson Minerals
                   </div>
-                  <div className="text-[#f6d8bd] text-xs font-semibold">
+                  <div className="text-white/70 text-xs font-semibold">
                     Inspection Company
                   </div>
                 </div>
               </a>
 
-              <p className="text-sm text-[#fafafa]/70 leading-relaxed">
+              <p className="text-sm text-white/80 leading-relaxed">
                 Professional mineral inspection, sampling, and supervision services across India.
               </p>
 
@@ -83,9 +87,9 @@ export default function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
-                    className="w-9 h-9 bg-[#2a2a2a] border border-[#3a3a3a] flex items-center justify-center hover:bg-[#b11212] hover:border-[#b11212] transition-colors group"
+                    className="w-8 h-8 border border-white/30 flex items-center justify-center hover:bg-white/10 transition-colors group"
                   >
-                    <social.icon className="w-4 h-4 text-[#fafafa]/70 group-hover:text-white transition-colors" />
+                    <social.icon className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
                   </a>
                 ))}
               </div>
@@ -98,7 +102,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <h3 className="text-[#f6d8bd] font-bold text-sm mb-4 uppercase tracking-wider">
+              <h3 className="text-white font-bold text-lg mb-4 pb-2 border-b-2 border-white/30 inline-block">
                 Quick Links
               </h3>
               <ul className="space-y-2">
@@ -106,7 +110,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <a
                       href={link.href}
-                      className="text-sm text-[#fafafa]/70 hover:text-[#f6d8bd] transition-colors inline-block"
+                      className="text-sm text-white/80 hover:text-white transition-colors inline-block"
                     >
                       {link.name}
                     </a>
@@ -122,7 +126,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-[#f6d8bd] font-bold text-sm mb-4 uppercase tracking-wider">
+              <h3 className="text-white font-bold text-lg mb-4 pb-2 border-b-2 border-white/30 inline-block">
                 Our Services
               </h3>
               <ul className="space-y-2">
@@ -130,7 +134,7 @@ export default function Footer() {
                   <li key={service.name}>
                     <a
                       href={service.href}
-                      className="text-sm text-[#fafafa]/70 hover:text-[#f6d8bd] transition-colors inline-block"
+                      className="text-sm text-white/80 hover:text-white transition-colors inline-block"
                     >
                       {service.name}
                     </a>
@@ -146,31 +150,31 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h3 className="text-[#f6d8bd] font-bold text-sm mb-4 uppercase tracking-wider">
+              <h3 className="text-white font-bold text-lg mb-4 pb-2 border-b-2 border-white/30 inline-block">
                 Contact Us
               </h3>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="tel:+911234567890"
-                    className="flex items-start gap-3 text-sm text-[#fafafa]/70 hover:text-[#f6d8bd] transition-colors group"
+                    className="flex items-start gap-2 text-sm text-white/80 hover:text-white transition-colors group"
                   >
-                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-[#b11212]" />
+                    <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <span>+91 123 456 7890</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="mailto:info@carbonsonminerals.com"
-                    className="flex items-start gap-3 text-sm text-[#fafafa]/70 hover:text-[#f6d8bd] transition-colors group"
+                    className="flex items-start gap-2 text-sm text-white/80 hover:text-white transition-colors group"
                   >
-                    <Mail className="w-4 h-4 mt-0.5 flex-shrink-0 group-hover:text-[#b11212]" />
+                    <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <span>info@carbonsonminerals.com</span>
                   </a>
                 </li>
                 <li>
-                  <div className="flex items-start gap-3 text-sm text-[#fafafa]/70">
-                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#b11212]" />
+                  <div className="flex items-start gap-2 text-sm text-white/80">
+                    <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <span>
                       123 Business Park, Industrial Area,<br />
                       Bhubaneswar, Odisha - 751001
@@ -183,46 +187,66 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#3a3a3a]">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6">
+        <div className="border-t border-white/20">
+          <div className="container mx-auto px-6 lg:px-12 py-5">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               {/* Copyright */}
-              <p className="text-xs text-[#fafafa]/60 text-center md:text-left">
+              <p className="text-xs text-white/70 text-center md:text-left">
                 © {new Date().getFullYear()} Carbonson Minerals Inspection Company. All rights reserved.
               </p>
 
               {/* Certifications */}
-              <div className="flex items-center gap-4 text-xs text-[#fafafa]/60">
+              <div className="flex items-center gap-4 text-xs text-white/70">
                 <span className="flex items-center gap-1">
-                  <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-[#00934c] rounded-full" />
                   NABL Accredited
                 </span>
                 <span className="flex items-center gap-1">
-                  <div className="w-1.5 h-1.5 bg-[#b11212] rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-[#00934c] rounded-full" />
                   ISO Certified
                 </span>
               </div>
 
-              {/* Legal Links */}
-              <div className="flex items-center gap-4 text-xs">
-                <a
-                  href="/privacy-policy"
-                  className="text-[#fafafa]/60 hover:text-[#f6d8bd] transition-colors"
+              {/* Legal Links + Scroll to Top */}
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 text-xs">
+                  <a
+                    href="/privacy-policy"
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    Privacy Policy
+                  </a>
+                  <span className="text-white/30">|</span>
+                  <a
+                    href="/terms"
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    Terms & Conditions
+                  </a>
+                </div>
+
+                {/* Scroll to Top Circle Button */}
+                <button
+                  onClick={scrollToTop}
+                  className="w-10 h-10 rounded-full bg-[#00934c] hover:bg-[#007a3d] flex items-center justify-center transition-colors"
+                  aria-label="Scroll to top"
                 >
-                  Privacy Policy
-                </a>
-                <span className="text-[#fafafa]/30">|</span>
-                <a
-                  href="/terms"
-                  className="text-[#fafafa]/60 hover:text-[#f6d8bd] transition-colors"
-                >
-                  Terms & Conditions
-                </a>
+                  <ChevronUp className="w-5 h-5 text-white" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Add CSS for vertical text */}
+      <style jsx>{`
+        .writing-mode-vertical {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          transform: rotate(180deg);
+        }
+      `}</style>
     </footer>
   );
 }
