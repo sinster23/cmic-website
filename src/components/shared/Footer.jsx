@@ -61,10 +61,7 @@ export default function Footer() {
               {/* Logo */}
               <a href="/" className="flex items-center gap-3 group">
                 <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#b11212] to-[#c1121f] flex items-center justify-center font-black text-white text-xl transform group-hover:scale-105 transition-transform">
-                    CM
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#f6d8bd]" />
+                  <img src="/logo1.png" alt="Carbonson Minerals Logo" className="w-10 h-10 lg:w-12 lg:h-12" />
                 </div>
                 <div>
                   <div className="text-white font-black text-base leading-tight">
@@ -156,20 +153,20 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+913263558195"
                     className="flex items-start gap-2 text-sm text-white/80 hover:text-white transition-colors group"
                   >
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>+91 123 456 7890</span>
+                    <span>+91 326 355 8195</span>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:info@carbonsonminerals.com"
+                    href="mailto:info@carbonsonminerals.in"
                     className="flex items-start gap-2 text-sm text-white/80 hover:text-white transition-colors group"
                   >
                     <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>info@carbonsonminerals.com</span>
+                    <span>info@carbonsonminerals.in</span>
                   </a>
                 </li>
                 <li>

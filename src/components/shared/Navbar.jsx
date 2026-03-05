@@ -75,11 +75,11 @@ export default function Navbar() {
             {/* Left Side - Contact Info */}
             <div className="flex items-center gap-4 sm:gap-6">
               <a
-                href="tel:+911234567890"
+                href="tel:+913263558195"
                 className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">+91 123 456 7890</span>
+                <span className="hidden sm:inline">+91 326 355 8195</span>
               </a>
               <a
                 href="mailto:info@carbonsonminerals.com"
@@ -121,17 +121,13 @@ export default function Navbar() {
             {/* Logo */}
             <a href="/" className="flex items-center gap-3 group">
               <div className="relative">
-                {/* Logo Icon */}
-                <div className="w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-[#b11212] to-[#c1121f] flex items-center justify-center font-black text-white text-xl lg:text-2xl transform group-hover:scale-105 transition-transform">
-                  CM
-                </div>
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-[#f6d8bd]" />
+                <img src="/logo1.png" alt="Carbonson Minerals Logo" className="w-10 h-10 lg:w-12 lg:h-12" />
               </div>
               <div className="hidden sm:block">
                 <div className="text-gray-900 font-black text-base lg:text-lg leading-tight">
                   Carbonson Minerals
                 </div>
-                <div className="text-[#00934c] text-xs font-semibold">
+                <div className="text-purple-900 text-xs font-semibold">
                   Inspection Company
                 </div>
               </div>
@@ -345,11 +341,11 @@ export default function Navbar() {
                   className="px-4 pt-4 mt-4 border-t border-gray-200 space-y-3"
                 >
                   <a
-                    href="tel:+911234567890"
+                    href="tel:+913263558195"
                     className="flex items-center gap-2 text-xs text-gray-600"
                   >
                     <Phone className="w-3 h-3" />
-                    <span>+91 123 456 7890</span>
+                    <span>+91 326 355 8195</span>
                   </a>
                   <a
                     href="mailto:info@carbonsonminerals.com"
