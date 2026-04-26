@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 export default function IndustriesCapabilitiesSection() {
-  const [openIndex, setOpenIndex] = useState(0); // First item open by default
+  const [openIndex, setOpenIndex] = useState(0);
 
   const capabilities = [
     {
@@ -32,6 +32,11 @@ export default function IndustriesCapabilitiesSection() {
 
   return (
     <section className="relative py-10 sm:py-12 lg:py-15 bg-gray-50 overflow-hidden">
+
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+      `}</style>
+
       {/* Background Pattern */}
       <div
         className="absolute inset-0 opacity-5"
@@ -40,8 +45,9 @@ export default function IndustriesCapabilitiesSection() {
         }}
       />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="relative z-10 container mx-auto max-w-6xl px-4 sm:px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -50,7 +56,7 @@ export default function IndustriesCapabilitiesSection() {
             transition={{ duration: 0.6 }}
             className="lg:sticky lg:top-24"
           >
-            {/* Section Label */}
+            {/* Section Label — Nunito Sans */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -58,122 +64,94 @@ export default function IndustriesCapabilitiesSection() {
               transition={{ duration: 0.5 }}
               className="mb-6"
             >
-              <p className="text-sm sm:text-base text-gray-600 font-medium tracking-wide">
+              <p
+                className="text-sm sm:text-base text-gray-600 tracking-wide"
+                style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
+              >
                 Globally Acclaimed For
               </p>
             </motion.div>
 
-            {/* Main Heading */}
+            {/* Main Heading — Oswald */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e3a8a] leading-tight mb-6"
+              className="leading-tight mb-6 text-[#1e3a8a]"
+              style={{
+                fontFamily: "'Oswald', sans-serif",
+                fontWeight: 700,
+                fontSize: 'clamp(2rem, 4vw, 3rem)',
+                letterSpacing: '-0.5px',
+              }}
             >
-              Industries & <span className="block">Capabilities</span>
+              Industries & <span className="lg:block">Capabilities</span>
             </motion.h2>
 
-            {/* Description */}
+            {/* Description — Nunito Sans */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm sm:text-base text-gray-700 leading-relaxed mb-10"
+              style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 400 }}
             >
               As a professionally managed inspection company, CMIC has established a strong presence across key industrial sectors in India. With our advanced inspection methodologies, qualified personnel, and streamlined services, we help organizations from varied industries maintain quality compliance and operational excellence.
             </motion.p>
 
             {/* Feature Badges */}
             <div className="flex flex-wrap gap-6 sm:gap-8">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex items-center gap-4"
-              >
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24">
-                  {/* Circle */}
-                  <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="4"
-                    />
-                    <motion.circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#00934c"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      initial={{ strokeDasharray: "283", strokeDashoffset: "283" }}
-                      whileInView={{ strokeDashoffset: "0" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.5, ease: "easeOut" }}
-                      strokeDasharray="283"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-base sm:text-lg font-bold text-[#00934c]">100%</span>
+              {[
+                { label: 'Client-Centric\nApproach', delay: 0.3 },
+                { label: 'Transparent\nProcedure', delay: 0.4 },
+              ].map((badge, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: badge.delay }}
+                  className="flex items-center gap-4"
+                >
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24">
+                    <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" strokeWidth="4" />
+                      <motion.circle
+                        cx="50" cy="50" r="45"
+                        fill="none" stroke="#00934c" strokeWidth="4" strokeLinecap="round"
+                        initial={{ strokeDasharray: "283", strokeDashoffset: "283" }}
+                        whileInView={{ strokeDashoffset: "0" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: badge.delay + 0.2, ease: "easeOut" }}
+                        strokeDasharray="283"
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span
+                        className="text-base sm:text-lg text-[#00934c]"
+                        style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+                      >
+                        100%
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm font-bold text-gray-800 uppercase">
-                    Client-Centric<br />Approach
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex items-center gap-4"
-              >
-                <div className="relative w-20 h-20 sm:w-24 sm:h-24">
-                  {/* Circle */}
-                  <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="4"
-                    />
-                    <motion.circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      fill="none"
-                      stroke="#00934c"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                      initial={{ strokeDasharray: "283", strokeDashoffset: "283" }}
-                      whileInView={{ strokeDashoffset: "0" }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.6, ease: "easeOut" }}
-                      strokeDasharray="283"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-base sm:text-lg font-bold text-[#00934c]">100%</span>
+                  <div>
+                    <p
+                      className="text-xs sm:text-sm text-gray-800 uppercase"
+                      style={{
+                        fontFamily: "'Nunito Sans', sans-serif",
+                        fontWeight: 800,
+                        letterSpacing: '0.05em',
+                        whiteSpace: 'pre-line',
+                      }}
+                    >
+                      {badge.label}
+                    </p>
                   </div>
-                </div>
-                <div>
-                  <p className="text-xs sm:text-sm font-bold text-gray-800 uppercase">
-                    Transparent<br />Procedure
-                  </p>
-                </div>
-              </motion.div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
@@ -183,7 +161,7 @@ export default function IndustriesCapabilitiesSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="space-y-4"
+            className="space-y-4 mt-5"
           >
             {capabilities.map((item, index) => (
               <motion.div
@@ -198,17 +176,26 @@ export default function IndustriesCapabilitiesSection() {
                 <button
                   onClick={() => toggleAccordion(index)}
                   className={`w-full flex items-center justify-between px-6 py-5 text-left transition-colors duration-300 ${
-                    openIndex === index ? 'bg-[#00934c] text-white' : 'bg-white text-gray-800 hover:bg-gray-50'
+                    openIndex === index
+                      ? 'bg-[#00934c] text-white'
+                      : 'bg-white text-gray-800 hover:bg-gray-50'
                   }`}
                 >
-                  <span className="font-bold text-sm sm:text-base uppercase tracking-wide">
+                  <span
+                    className="text-sm sm:text-base uppercase"
+                    style={{
+                      fontFamily: "'Oswald', sans-serif",
+                      fontWeight: 600,
+                      letterSpacing: '0.06em',
+                    }}
+                  >
                     {item.title}
                   </span>
                   <div className="flex-shrink-0 ml-4">
                     {openIndex === index ? (
                       <Minus className="w-5 h-5" />
                     ) : (
-                      <Plus className="w-5 h-5" />
+                      <Plus className="w-5 h-5 text-gray-500" />
                     )}
                   </div>
                 </button>
@@ -218,13 +205,16 @@ export default function IndustriesCapabilitiesSection() {
                   {openIndex === index && (
                     <motion.div
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
+                      animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.3, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
                       <div className="px-6 py-5 bg-white border-t border-gray-200">
-                        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+                        <p
+                          className="text-sm sm:text-base text-gray-700 leading-relaxed"
+                          style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 400 }}
+                        >
                           {item.content}
                         </p>
                       </div>
@@ -234,6 +224,7 @@ export default function IndustriesCapabilitiesSection() {
               </motion.div>
             ))}
           </motion.div>
+
         </div>
       </div>
     </section>

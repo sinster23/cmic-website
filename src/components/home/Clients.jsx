@@ -5,66 +5,32 @@ import { motion } from 'framer-motion';
 
 export default function ClientsSection() {
   const clients = [
-    {
-      name: 'Coal India',
-      logo: '/clients/Coal_India_Logo.svg',
-    },
-    {
-      name: 'NTPC',
-      logo: '/clients/ntpc.png',
-    },
-    {
-      name: 'UPRV',
-      logo: '/clients/uprv.png',
-    },
-    {
-      name: 'IFB Agro',
-      logo: '/clients/ifb_agro.png',
-    },
-    {
-      name: 'Gujarat Ambuja Exports',
-      logo: '/clients/gujarat.png',
-    },
-    {
-      name: 'Nuvoco',
-      logo: '/clients/nuvoco.png',
-    },
-    {
-      name: 'Mohit Minerals',
-      logo: '/clients/mohit_minerals.png',
-    },
-    {
-      name: 'Tirupati Minerals',
-      logo: '/clients/tirupati_minerals.png',
-    },
-    {
-      name: 'CCI',
-      logo: '/clients/cci.avif',
-    },
-    {
-      name: 'Wave Distil',
-      logo: '/clients/wd.png',
-    },
-    {
-      name: 'Shree Cement',
-      logo: '/clients/shree_cement.png',
-    },
-    {
-      name: 'ACC Limited',
-      logo: '/clients/acc_limited.png',
-    },
+    { name: 'Coal India',              logo: '/clients/Coal_India_Logo.svg' },
+    { name: 'NTPC',                    logo: '/clients/ntpc.png' },
+    { name: 'UPRV',                    logo: '/clients/uprv.png' },
+    { name: 'IFB Agro',               logo: '/clients/ifb_agro.png' },
+    { name: 'Gujarat Ambuja Exports', logo: '/clients/gujarat.png' },
+    { name: 'Nuvoco',                 logo: '/clients/nuvoco.png' },
+    { name: 'Mohit Minerals',         logo: '/clients/mohit_minerals.png' },
+    { name: 'Tirupati Minerals',      logo: '/clients/tirupati_minerals.png' },
+    { name: 'CCI',                    logo: '/clients/cci.avif' },
+    { name: 'Wave Distil',            logo: '/clients/wd.png' },
+    { name: 'Shree Cement',           logo: '/clients/shree_cement.png' },
+    { name: 'ACC Limited',            logo: '/clients/acc_limited.png' },
   ];
 
-  // Triple the array for truly seamless infinite scroll
   const duplicatedClients = [...clients, ...clients, ...clients];
 
-  // Calculate the width of one complete set
-  // Logo width (192px on lg) + gap (80px on lg) = 272px per item
-  const itemWidth = 272; // Adjust based on your actual logo width + gap
+  const itemWidth = 272;
   const totalWidth = clients.length * itemWidth;
 
   return (
     <section className="relative pb-8 sm:pb-12 lg:pb-16 bg-white overflow-hidden">
+
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Nunito+Sans:wght@400;600;700;800&display=swap');
+      `}</style>
+
       {/* Background Pattern */}
       <div
         className="absolute inset-0 opacity-5"
@@ -74,24 +40,36 @@ export default function ClientsSection() {
       />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+
+          {/* Heading — Oswald 700 */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1e3a8a] leading-tight mb-4"
+            className="mb-4 text-[#1e3a8a]"
+            style={{
+              fontFamily: "'Oswald', sans-serif",
+              fontWeight: 700,
+              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              letterSpacing: '-0.5px',
+              lineHeight: 1.15,
+            }}
           >
-            Our <span className="text-[#00934c]">Clients</span>
+            Our <span style={{ color: '#00934c' }}>Clients</span>
           </motion.h2>
 
+          {/* Subtext — Nunito Sans 600 */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-lg text-gray-700 font-medium"
+            className="text-base sm:text-lg text-gray-700"
+            style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
           >
             Trusted by leading public and private sector organizations across industries.
           </motion.p>
@@ -107,29 +85,23 @@ export default function ClientsSection() {
           <div className="overflow-hidden">
             <motion.div
               className="flex gap-12 sm:gap-16 lg:gap-20"
-              animate={{
-                x: [0, -totalWidth],
-              }}
+              animate={{ x: [0, -totalWidth] }}
               transition={{
                 x: {
                   repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 40, // Adjust speed (higher = slower)
-                  ease: "linear",
+                  repeatType: 'loop',
+                  duration: 40,
+                  ease: 'linear',
                 },
               }}
             >
               {duplicatedClients.map((client, index) => (
-                <div
-                  key={`${client.name}-${index}`}
-                  className="flex-shrink-0 group"
-                >
-                  {/* Logo Container */}
+                <div key={`${client.name}-${index}`} className="flex-shrink-0 group">
                   <div className="relative h-24 w-40 sm:h-28 sm:w-44 lg:h-32 lg:w-48 flex items-center justify-center bg-white transition-all duration-300 hover:shadow-md hover:border-[#00934c]/30">
                     <img
                       src={client.logo}
                       alt={`${client.name} logo`}
-                      className="max-h-16 sm:max-h-20 lg:max-h-24 max-w-[85%] object-contain transition-all duration-300 opacity-60"
+                      className="max-h-16 sm:max-h-20 lg:max-h-24 max-w-[85%] object-contain transition-all duration-300 "
                     />
                   </div>
                 </div>

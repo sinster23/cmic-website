@@ -1,83 +1,92 @@
 'use client';
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+
+function CountUp({ target, duration = 2000, delay = 0 }) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (inView && !started) {
+      const timeout = setTimeout(() => {
+        setStarted(true);
+        const startTime = performance.now();
+        const animate = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setCount(Math.floor(eased * target));
+          if (progress < 1) requestAnimationFrame(animate);
+          else setCount(target);
+        };
+        requestAnimationFrame(animate);
+      }, delay);
+      return () => clearTimeout(timeout);
+    }
+  }, [inView, started, target, duration, delay]);
+
+  return <span ref={ref}>{count.toLocaleString()}</span>;
+}
 
 export default function StatsSection() {
   const stats = [
-    {
-      number: '125',
-      suffix: '+',
-      label: 'Mineral, Critical Mineral & Coal Grades Inspected',
-      delay: 0.2
-    },
-    {
-      number: '97',
-      suffix: '+',
-      label: 'Projects Successfully Completed',
-      delay: 0.3
-    },
-    {
-      number: '3',
-      suffix: '+',
-      label: 'Years of Industry Experience',
-      delay: 0.4
-    },
+    { number: 125, suffix: '+', label: 'Mineral, Critical Mineral & Coal Grades Inspected', delay: 0 },
+    { number: 97,  suffix: '+', label: 'Projects Successfully Completed',                   delay: 200 },
+    { number: 3,   suffix: '+', label: 'Years of Industry Experience',                      delay: 400 },
   ];
 
   return (
-    <section className="relative py-8 sm:py-12 lg:py-14 bg-[#00934c] overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl" />
+    <div className="relative w-full overflow-hidden">
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Nunito+Sans:wght@600;700&display=swap');
+      `}</style>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: stat.delay }}
-              className="text-center"
-            >
-              {/* Number with Plus */}
-              <div className="mb-3">
-                <motion.span
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: stat.delay + 0.2 }}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black text-white inline-block"
-                >
-                  {stat.number}
-                </motion.span>
-                <motion.span
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: stat.delay + 0.3 }}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-white inline-block ml-1"
-                >
-                  {stat.suffix}
-                </motion.span>
-              </div>
+      {/* Green banner — flush left, margin only on right */}
+      <section
+        className="relative py-5 sm:py-18 lg:py-12 bg-[#00934c] overflow-hidden"
+        style={{ marginRight: '150px' }}
+      >
+        {/* Subtle blobs */}
+        <div className="absolute top-0 left-0 w-40 h-40 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-              {/* Label */}
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+        <div className="relative z-10 px-10 sm:px-14 lg:px-20">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 lg:gap-0">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: stat.delay + 0.4 }}
-                className="text-xs sm:text-sm lg:text-base text-white/90 font-medium uppercase tracking-wide leading-relaxed max-w-xs mx-auto"
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="flex flex-col items-center text-center pt-8 sm:pt-0 first:pt-0 sm:px-10"
               >
-                {stat.label}
-              </motion.p>
-            </motion.div>
-          ))}
+                {/* Number — Oswald */}
+                <div
+                  className="flex items-baseline gap-1 mb-3"
+                  style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700 }}
+                >
+                  <span className="text-5xl sm:text-6xl lg:text-7xl text-white leading-none">
+                    <CountUp target={stat.number} duration={2000} delay={stat.delay} />
+                  </span>
+                  <span className="text-3xl sm:text-4xl text-white leading-none">{stat.suffix}</span>
+                </div>
+
+                {/* Label — Nunito Sans */}
+                <p
+                  className="text-xs sm:text-sm text-white/90 uppercase tracking-widest leading-snug max-w-[180px]"
+                  style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
+                >
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
