@@ -186,19 +186,19 @@ export default function Navbar() {
                 <span className="hidden sm:inline">+91 326 355 8195</span>
               </a>
               <a
-                href="mailto:info@carbonsonminerals.com"
+                href="mailto:info@carbonson.in"
                 className="flex items-center gap-1.5 text-white/90 hover:text-white transition-colors"
                 style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span className="hidden md:inline">info@carbonsonminerals.com</span>
+                <span className="hidden md:inline">info@carbonson.in</span>
               </a>
               <span
                 className="hidden lg:flex items-center gap-1.5 text-white/90"
                 style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
               >
                 <MapPin className="w-3.5 h-3.5" />
-                <span>carbonsonminerals.com</span>
+                <span>carbonson.in</span>
               </span>
             </div>
             <div
@@ -296,7 +296,7 @@ export default function Navbar() {
               })}
 
               <a
-                href="/contact"
+                href="/request-a-quote"
                 className="ml-2 px-6 py-2.5 bg-[#00934c] text-white text-sm uppercase hover:bg-[#007a3d] transition-colors rounded-full"
                 style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 600, letterSpacing: '0.06em' }}
               >
@@ -441,12 +441,12 @@ export default function Navbar() {
                     <span>+91 326 355 8195</span>
                   </a>
                   <a
-                    href="mailto:info@carbonsonminerals.com"
+                    href="mailto:info@carbonson.in"
                     className="flex items-center gap-2 text-xs text-gray-600"
                     style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
                   >
                     <Mail className="w-3 h-3" />
-                    <span>info@carbonsonminerals.com</span>
+                    <span>info@carbonson.in</span>
                   </a>
                 </motion.div>
               </div>

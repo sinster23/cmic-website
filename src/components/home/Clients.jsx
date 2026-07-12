@@ -15,8 +15,8 @@ export default function ClientsSection() {
     { name: 'Tirupati Minerals',      logo: '/clients/tirupati_minerals.png' },
     { name: 'CCI',                    logo: '/clients/cci.avif' },
     { name: 'Wave Distil',            logo: '/clients/wd.png' },
-    { name: 'Shree Cement',           logo: '/clients/shree_cement.png' },
-    { name: 'ACC Limited',            logo: '/clients/acc_limited.png' },
+    // { name: 'Shree Cement',           logo: '/clients/shree_cement.png' },
+    // { name: 'ACC Limited',            logo: '/clients/acc_limited.png' },
   ];
 
   const duplicatedClients = [...clients, ...clients, ...clients];

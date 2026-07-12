@@ -9,13 +9,13 @@ export default function Footer() {
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Clients', href: '/clients' },
+    { name: 'Gallery', href: '/gallery' },
   ];
 
   const services = [
-    { name: 'Minerals Sampling', href: '/services/sampling' },
-    { name: 'Inspection & Witnessing', href: '/services/inspection' },
-    { name: 'Liaisoning & Supervision', href: '/services/liaisoning' },
+    { name: 'Minerals Sampling', href: '/services/mineral-sampling' },
+    { name: 'Inspection & Witnessing', href: '/services/joint-sampling-inspection' },
+    { name: 'Liaisoning & Supervision', href: '/services/liaisoning-supervision' },
     { name: 'Analysis & Testing', href: '/services/analysis' },
   ];
 

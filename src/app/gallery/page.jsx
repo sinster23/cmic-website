@@ -30,7 +30,7 @@ const galleryItems = [
   { n: 16, file: 'gal16.png', cat: 'analysis',    label: 'Workshop Equipment Testing', size: 'normal' },
   { n: 17, file: 'gal17.png', cat: 'sampling',    label: 'Stockpile Sample Collection',size: 'wide' },
   { n: 18, file: 'gal18.png', cat: 'supervision', label: 'Site Visit & Liaison',       size: 'normal' },
-  { n: 19, file: 'gal19.png', cat: 'analysis',    label: 'Laboratory Cross-Check',     size: 'normal' },
+  { n: 19, file: 'gal19.jpeg', cat: 'analysis',    label: 'Laboratory Cross-Check',     size: 'normal' },
 ];
 
 const filters = [
