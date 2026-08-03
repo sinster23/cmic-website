@@ -14,7 +14,7 @@ const nunito = { fontFamily: "'Nunito Sans', sans-serif" };
 const galleryItems = [
   { n: 1,  file: 'gal1.png',  cat: 'sampling',    label: 'Night Sample Collection',    size: 'wide' },
   { n: 2,  file: 'gal2.png',  cat: 'sampling',    label: 'Manual Sample Turning',      size: 'tall' },
-  { n: 3,  file: 'gal3.png',  cat: 'analysis',    label: 'Laboratory Testing',         size: 'normal' },
+  // { n: 3,  file: 'gal3.png',  cat: 'analysis',    label: 'Laboratory Testing',         size: 'normal' },
   { n: 4,  file: 'gal4.png',  cat: 'supervision', label: 'Stockyard Overview',         size: 'normal' },
   { n: 5,  file: 'gal5.png',  cat: 'sampling',    label: 'Wagon Top Sampling',         size: 'normal' },
   { n: 6,  file: 'gal6.png',  cat: 'inspection',  label: 'Joint Witnessing',           size: 'wide' },
@@ -26,11 +26,11 @@ const galleryItems = [
   { n: 12, file: 'gal12.png', cat: 'inspection',  label: 'Site Inspection Team',       size: 'normal' },
   { n: 13, file: 'gal13.png', cat: 'sampling',    label: 'Rake Top Sampling',          size: 'normal' },
   { n: 14, file: 'gal14.png', cat: 'inspection',  label: 'Process Line Inspection',    size: 'tall' },
-  { n: 15, file: 'gal15.png', cat: 'analysis',    label: 'XRF Analysis',               size: 'normal' },
+  // { n: 15, file: 'gal15.png', cat: 'analysis',    label: 'XRF Analysis',               size: 'normal' },
   { n: 16, file: 'gal16.png', cat: 'analysis',    label: 'Workshop Equipment Testing', size: 'normal' },
   { n: 17, file: 'gal17.png', cat: 'sampling',    label: 'Stockpile Sample Collection',size: 'wide' },
   { n: 18, file: 'gal18.png', cat: 'supervision', label: 'Site Visit & Liaison',       size: 'normal' },
-  { n: 19, file: 'gal19.jpeg', cat: 'analysis',    label: 'Laboratory Cross-Check',     size: 'normal' },
+  // { n: 19, file: 'gal19.jpeg', cat: 'analysis',    label: 'Laboratory Cross-Check',     size: 'normal' },
 ];
 
 const filters = [

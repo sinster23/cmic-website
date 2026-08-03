@@ -81,7 +81,6 @@ export default function Navbar() {
     },
     { name: 'Gallery',    href: '/gallery' },
     { name: 'Careers',    href: '/careers' },
-    { name: 'Contact Us', href: '/contact' },
   ];
 
   const isActive = (link) => {
@@ -183,7 +182,7 @@ export default function Navbar() {
                 style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">+91 326 355 8195</span>
+                <span className="hidden sm:inline">+91 938 622 6827</span>
               </a>
               <a
                 href="mailto:info@carbonson.in"
@@ -303,12 +302,12 @@ export default function Navbar() {
                 Request for Quote
               </a>
 
-              <button
+              {/* <button
                 className="ml-2 p-2 text-gray-700 hover:text-[#00934c] transition-colors"
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
-              </button>
+              </button> */}
             </div>
 
             {/* Mobile Menu Button */}

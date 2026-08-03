@@ -107,7 +107,7 @@ export default function CTASection() {
           >
             {/* Primary CTA — Nunito Sans 800 */}
             <motion.a
-              href="/contact"
+              href="/request-a-quote"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#00934c] rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden"
@@ -115,7 +115,7 @@ export default function CTASection() {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
               <span className="relative flex items-center gap-2">
-                Get a Quote
+                Contact Us
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
             </motion.a>

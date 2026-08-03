@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function HeroSection() {
@@ -120,14 +121,20 @@ export default function HeroSection() {
 
           {/* CTA Buttons — fixed, never change */}
           <div className="flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4">
-            <button className="group flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-green-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wide hover:bg-green-800 transition-all duration-300 hover:shadow-xl">
+            <Link
+              href="/request-a-quote"
+              className="group flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-green-700 text-white font-bold text-xs sm:text-sm uppercase tracking-wide hover:bg-green-800 transition-all duration-300 hover:shadow-xl"
+            >
               Request Inspection Quote
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="group flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-transparent text-white font-bold text-xs sm:text-sm uppercase tracking-wide border-2 border-white hover:bg-white hover:text-green-700 transition-all duration-300">
-              Contact Our Expert
+            </Link>
+            <Link
+              href="/services"
+              className="group flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-transparent text-white font-bold text-xs sm:text-sm uppercase tracking-wide border-2 border-white hover:bg-white hover:text-green-700 transition-all duration-300"
+            >
+              View Our Services
               <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -172,15 +179,24 @@ export default function HeroSection() {
 
       {/* ── Mobile Bottom Bar CTAs — fixed colours ── */}
       <div className="flex lg:hidden absolute bottom-0 left-0 right-0 z-30">
-        <button className="flex-1 py-2.5 bg-green-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-green-800 transition-colors text-center border-r border-white/20">
+        <Link
+          href="/request-a-quote"
+          className="flex-1 py-2.5 bg-green-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-green-800 transition-colors text-center border-r border-white/20"
+        >
           Quote
-        </button>
-        <button className="flex-1 py-2.5 bg-teal-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors text-center border-r border-white/20">
+        </Link>
+        <a
+          href="tel:+15551234567"
+          className="flex-1 py-2.5 bg-teal-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-teal-800 transition-colors text-center border-r border-white/20"
+        >
           Call
-        </button>
-        <button className="flex-1 py-2.5 bg-slate-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition-colors text-center">
+        </a>
+        <a
+          href="mailto:info@cmic.com"
+          className="flex-1 py-2.5 bg-slate-700 text-white text-xs font-bold uppercase tracking-widest hover:bg-slate-800 transition-colors text-center"
+        >
           Email
-        </button>
+        </a>
       </div>
 
     </div>

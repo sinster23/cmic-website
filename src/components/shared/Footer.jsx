@@ -173,7 +173,7 @@ export default function Footer() {
                     style={{ fontFamily: "'Nunito Sans', sans-serif", fontWeight: 600 }}
                   >
                     <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                    <span>+91 326 355 8195</span>
+                    <span>+91 938 622 6827</span>
                   </a>
                 </li>
                 <li>
@@ -193,8 +193,8 @@ export default function Footer() {
                   >
                     <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                     <span>
-                      123 Business Park, Industrial Area,<br />
-                      Bhubaneswar, Odisha - 751001
+                      Carbonson Minerals Inspection Company,<br />
+                      Head office: Near IIT ISM Dhanbad, Lahbana, Dhanbad, Jharkhand, PIN 826004.<br />
                     </span>
                   </div>
                 </li>
